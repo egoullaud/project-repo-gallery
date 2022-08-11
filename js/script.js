@@ -2,6 +2,8 @@
 const overview = document.querySelector(".overview");
 //github username
 const username = "egoullaud"
+//select unordered list to display repos list
+const repoList = document.querySelector(".repo-list");
 
 //grab user information from git API
 const getRepos = async function (){
@@ -29,4 +31,22 @@ const displayUserInfo = function(data) {
      `;
 
 overview.append(userInfo);
+getRepoList();
+};
+
+const getRepoList = async function () {
+const repoListItem = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+const repos = await repoListItem.json()
+// console.log(repos);
+displayRepos(repos);
+}
+// getRepoList();
+
+const displayRepos = function(repos){
+for(const repo of repos){
+const repoItem =document.createElement("li");
+repoItem.classList.add("repo");
+repoItem.innerHTML = `<h3> ${repo.name} </h3>`;
+repoList.append(repoItem);
+}
 };
