@@ -163,7 +163,7 @@ section.repo-data {
     background-color: black;
     border-right:1px solid yellow;
     border-left:1px solid yellow;
-    border-bottom:1px solid yellow;
+  
     padding: 2em;
     padding-bottom: 1em;
 }
@@ -238,13 +238,16 @@ section.repo-data {
 .button-container {
     width: 100%;
     background-color: black;
+    border-bottom:1px solid yellow;
+    border-right:1px solid yellow;
+    border-left:1px solid yellow;
     padding-left: 2em;
     padding-bottom: 2em;
 }
 
 .view-repos {
     max-width: 200px;
-    margin-top: 0;
+    margin-top: 20px;
     background-color: black;
     color: limegreen;
     border: 1px solid yellow;
