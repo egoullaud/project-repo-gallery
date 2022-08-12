@@ -112,3 +112,19 @@ repoData.classList.add("hide");
 viewReposButton.classList.add("hide");
 
 });
+
+filterInput.addEventListener("input", function(e){
+    const searchText = e.target.value;
+    // console.log(searchText);
+    const repos = document.querySelectorAll(".repo");
+    const lowerSearch = searchText.toLowerCase();
+
+    for(const repo of repos){
+        const lowerText = repo.innerText.toLowerCase();
+        if (lowerText.includes(lowerSearch)){
+            repo.classList.remove("hide");
+        } else{
+            repo.classList.add("hide");
+        }
+    }
+});
